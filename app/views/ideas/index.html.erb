@@ -1,0 +1,30 @@
+<h1>Alle Ideen</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Beschreibung</th>
+      <th>Bild</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ideas.each do |idea| %>
+      <tr>
+        <td><%= idea.name %></td>
+        <td><%= idea.description %></td>
+        <td><%= idea.picture %></td>
+        <td><%= link_to 'Anzeigen', idea %></td>
+        <td><%= link_to 'Bearbeiten', edit_idea_path(idea) %></td>
+        <td><%= link_to 'Löschen', idea, method: :delete, data: { confirm: 'Echt jeeeeeeetzt????' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<h1>
+<%= link_to 'Neue Ideen', new_idea_path %>
+</h1>
